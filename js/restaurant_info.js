@@ -87,7 +87,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   address.innerHTML = restaurant.address;
 
   const image = document.getElementById('restaurant-img');
-  image.className = 'restaurant-img'
+  image.classList.add('restaurant-img');
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
 
   const cuisine = document.getElementById('restaurant-cuisine');
@@ -125,11 +125,7 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
  * Create all reviews HTML and add them to the webpage.
  */
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
-  const container = document.getElementById('reviews-container');
-  const title = document.createElement('h2');
-  title.innerHTML = 'Reviews';
-  container.appendChild(title);
-
+  const container = document.getElementById('reviews-details');
   if (!reviews) {
     const noReviews = document.createElement('p');
     noReviews.innerHTML = 'No reviews yet!';
@@ -140,7 +136,6 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   reviews.forEach(review => {
     ul.appendChild(createReviewHTML(review));
   });
-  container.appendChild(ul);
 }
 
 /**
@@ -148,19 +143,13 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  */
 createReviewHTML = (review) => {
   const li = document.createElement('li');
-  const name = document.createElement('p');
-  name.innerHTML = review.name;
-  li.appendChild(name);
+  li.classList.add('rounded');
 
-  const date = document.createElement('p');
-  date.innerHTML = review.date;
-  li.appendChild(date);
-
-  const rating = document.createElement('p');
-  rating.innerHTML = `Rating: ${review.rating}`;
-  li.appendChild(rating);
+  addReviewTitle(review, li);
+  addRating(review, li);
 
   const comments = document.createElement('p');
+  comments.className = 'review__comments';
   comments.innerHTML = review.comments;
   li.appendChild(comments);
 
@@ -192,3 +181,28 @@ getParameterByName = (name, url) => {
     return '';
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
+function addRating(review, li) {
+  const ratingContainer = document.createElement('div');
+  ratingContainer.className = 'review__rating';
+  const rating = document.createElement('p');
+  rating.innerHTML = `RATING: ${review.rating}`;
+  ratingContainer.appendChild(rating);
+  li.appendChild(ratingContainer);
+}
+
+function addReviewTitle(review, li) {
+  const reviewTitleContainer = document.createElement('div');
+  reviewTitleContainer.className = 'review__title';
+  const reviewTitle = document.createElement('p');
+  reviewTitleContainer.appendChild(reviewTitle);
+  const name = document.createElement('span');
+  name.innerHTML = review.name;
+  name.className = 'review__name';
+  reviewTitle.appendChild(name);
+  const date = document.createElement('span');
+  date.innerHTML = review.date;
+  reviewTitle.appendChild(date);
+  date.className = 'review__date';
+  li.appendChild(reviewTitleContainer);
+}
+
