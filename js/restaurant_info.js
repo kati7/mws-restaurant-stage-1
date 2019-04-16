@@ -86,9 +86,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
 
-  const image = document.getElementById('restaurant-img');
-  image.classList.add('restaurant-img');
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  addImage(restaurant);
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
@@ -181,6 +179,15 @@ getParameterByName = (name, url) => {
     return '';
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
+function addImage(restaurant) {
+  const image = document.getElementById('restaurant-img');
+  image.classList.add('restaurant-img');
+  const imageUrls = DBHelper.imageUrlsForRestaurant(restaurant);
+  image.src = imageUrls.small;
+  image.setAttribute('srcset', `${imageUrls.medium} 800w, ${imageUrls.small} 500w`);
+  image.setAttribute('sizes', '(max-width: 700px) 90vw, 50vw');
+}
+
 function addRating(review, li) {
   const ratingContainer = document.createElement('div');
   ratingContainer.className = 'review__rating';

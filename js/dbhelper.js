@@ -149,8 +149,17 @@ class DBHelper {
   /**
    * Restaurant image URL.
    */
-  static imageUrlForRestaurant(restaurant) {
-    return (`/img/${restaurant.photograph}`);
+  static imageUrlsForRestaurant(restaurant) {
+    const mediumPostfix = '-800_medium.jpg';
+    const smallPostfix = '-500_small.jpg';
+    const imageUrl = (`/img/${restaurant.photograph}`);
+    const imagePrefix = imageUrl.slice(0, imageUrl.indexOf('.jpg'));
+    const imageUrlSmall = imagePrefix + smallPostfix;
+    const imageUrlMedium = imagePrefix + mediumPostfix;
+    return {
+      'small': imageUrlSmall,
+      'medium': imageUrlMedium
+    };
   }
 
   /**
