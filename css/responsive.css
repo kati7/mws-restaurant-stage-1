@@ -1,0 +1,19 @@
+@media screen and (min-width: 600px) {
+  #restaurants-list li {
+    width: 45%;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  #restaurants-list li {
+    width: 30%;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  header, main, footer {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

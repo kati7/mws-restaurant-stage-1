@@ -147,16 +147,16 @@ nav h1 a {
   padding: 0;
   text-align: center;
   padding-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
 }
 #restaurants-list li {
   background-color: #fff;
   border: 2px solid #ccc;
   font-family: Arial,sans-serif;
   padding: 10px;
-  min-height: 380px;
   text-align: left;
   width: 90%;
-  min-width: 290px;
   margin: auto;
   margin-top: 10px;
 }
@@ -164,9 +164,7 @@ nav h1 a {
   background-color: #ccc;
   display: block;
   margin: 0;
-  max-width: 100%;
-  min-height: 248px;
-  min-width: 100%;
+  width: 100%;
 }
 #restaurants-list li h1 {
   color: #f18200;
