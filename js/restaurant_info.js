@@ -186,6 +186,7 @@ function addImage(restaurant) {
   image.src = imageUrls.small;
   image.setAttribute('srcset', `${imageUrls.medium} 800w, ${imageUrls.small} 500w`);
   image.setAttribute('sizes', '(max-width: 700px) 90vw, 50vw');
+  image.alt = DBHelper.imageDescriptionForRestaurant(restaurant);
 }
 
 function addRating(review, li) {

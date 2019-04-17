@@ -162,6 +162,10 @@ class DBHelper {
     };
   }
 
+  static imageDescriptionForRestaurant(restaurant) {
+    return `Picture of ${restaurant.name} restaurant`;
+  }
+
   /**
    * Map marker for a restaurant.
    */
