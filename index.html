@@ -18,10 +18,11 @@
   </header>
 
   <main>
+    <a href="#mainSection" class="skip-map">Skip the map</a>
     <section>
       <div id="map"></div>
     </section>
-    <section>
+    <section id="mainSection" tabindex="-1">
       <div class="filter-options">
         <h2>Filter Results</h2>
         <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
