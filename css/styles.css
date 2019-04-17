@@ -128,14 +128,28 @@ nav h1 a {
   width: 100%;
   background-color: #3397DB;
   align-items: center;
+  display: flex;
+  flex-wrap: wrap;
 }
 .filter-options h2 {
+  width: 100%;
   color: white;
   font-size: 1rem;
   font-weight: normal;
   line-height: 1;
   padding: 10px;
   margin: 0;
+}
+.neighborhoodsContainer {
+  width: 100%;
+} 
+.cuisinesContainer {
+  width: 100%;
+} 
+.filter-options label {
+  display:block;
+  color: white;
+  margin: 10px 10px 0;
 }
 .filter-options select {
   background-color: white;

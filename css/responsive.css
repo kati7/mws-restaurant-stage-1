@@ -2,11 +2,23 @@
   #restaurants-list li {
     width: 45%;
   }
+  .neighborhoodsContainer {
+    width: 35%;
+  } 
+  .cuisinesContainer {
+    width: 65%;
+  } 
 }
 
 @media screen and (min-width: 900px) {
   #restaurants-list li {
     width: 30%;
+  }
+  .neighborhoodsContainer {
+    width: 30%;
+  } 
+  .cuisinesContainer {
+    width: 70%;
   }
 }
 
