@@ -1,4 +1,4 @@
-const staticCacheName = 'restaurant-cache-v8';
+const staticCacheName = 'restaurant-cache-v1';
 const urlsToCache = [
   '/',
   '/index.html',
