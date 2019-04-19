@@ -1,3 +1,16 @@
+registerServiceWorker = () => {
+  if(!navigator.serviceWorker) return;
+
+  navigator.serviceWorker.register('/sw.js')
+  .then(function(reg) {
+    console.log(`ServiceWorker registered with scope: ${reg.scope}`);
+  }).catch(function(error) {
+    console.log(`ServiceWorker not registered, error: ${error}`);
+  });
+}
+
+registerServiceWorker();
+
 let restaurants,
   neighborhoods,
   cuisines
